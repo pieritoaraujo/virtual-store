@@ -1,5 +1,7 @@
 import model.Product;
 import model.Cart;
+import strategy.DiscountStrategy;
+import strategy.PercentageDiscountStrategy;
 import adapter.ExternalPaypalService;
 import adapter.PayPalAdapter;
 import adapter.PaymentProcessor;
@@ -41,6 +43,8 @@ class main {
         carrocomprasPA2.agregarProducto(p4);
 
         double total2 = carrocomprasPA2.calculoTotal();
+        DiscountStrategy descuento = new PercentageDiscountStrategy(10.0);
+        total2 = descuento.applyDiscount(total);
         System.out.println("Compra confirmada por S/ " +total2);
         OrdenS.notificarObserver("Compra realizada");
     }

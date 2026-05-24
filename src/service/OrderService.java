@@ -1,5 +1,6 @@
 package service;
     import observer.OrderObserver;
+
     import java.util.ArrayList;
     import java.util.List;
 
@@ -9,7 +10,10 @@ public class OrderService {
     public void agregarObserver(OrderObserver observer) {
         observers.add(observer);
     }
-    public void notificarObserver(String message){
-        for(OrderObserver observer : observers);
+
+    public void notificarObserver(String message) {
+        for (OrderObserver observer : observers) {
+            observer.update(message);
+        }
     }
 }

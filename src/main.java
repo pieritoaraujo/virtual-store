@@ -32,5 +32,16 @@ class main {
         System.out.println("Compra confirmada por S/ " +total);
 
         OrdenS.notificarObserver("Compra realizada");
+
+        System.out.println();
+
+        Cart carrocomprasPA2 = new Cart();
+        carrocomprasPA2.agregarProducto(p2);
+        carrocomprasPA2.agregarProducto(p3);
+        carrocomprasPA2.agregarProducto(p4);
+
+        double total2 = carrocomprasPA2.calculoTotal();
+        System.out.println("Compra confirmada por S/ " +total2);
+        OrdenS.notificarObserver("Compra realizada");
     }
 }
